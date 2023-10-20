@@ -1,0 +1,85 @@
+using System;
+
+class Program
+{
+    delegate void MenuAction();
+
+    static void Main()
+    {
+        MenuAction[] menuActions = new MenuAction[]
+        {
+            NewGame,
+            LoadGame,
+            ShowRules,
+            AuthoInfo,
+            Exit
+        };
+
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("Меню:");
+            Console.WriteLine("1 - Новая игра");
+            Console.WriteLine("2 - Загрузить игру");
+            Console.WriteLine("3 - Правила");
+            Console.WriteLine("4 - Об авторе");
+            Console.WriteLine("0 - ВЫХОД");
+
+            int choice;
+            if (int.TryParse(Console.ReadLine(), out choice))
+            {
+                if (choice >0 && choice < menuActions.Length)
+                {
+                    MenuAction selectedAction = menuActions[choice-1];
+                    selectedAction();
+                }
+                else if (choice == 0 )
+                {
+                            MenuAction selectedAction = menuActions[4];
+                            selectedAction();
+                        }
+                else
+                {
+                    Console.WriteLine("Не то что-то");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Число введите, ну вы поняли");
+            }
+
+            Console.WriteLine("Нажмите любую клавишу, чтобы продолжить...");
+            Console.ReadKey();
+        }
+    }
+
+    static void NewGame()
+    {
+        Console.WriteLine("Начата новая игра (называется проживи на 4 к грн в месяц)");
+        
+    }
+
+    static void LoadGame()
+    {
+        Console.WriteLine("Игра загружена (у кого-то на компе но не у вас)");
+       
+    }
+
+    static void ShowRules()
+    {
+        Console.WriteLine("Показываются правила (очень интересное лицо тут надо сделать, а правила можете сами придумать )");
+        
+    }
+
+    static void AuthoInfo()
+    {
+        Console.WriteLine("Информация об авторе (ну да, я)");
+       
+    }
+
+    static void Exit()
+    {
+        Console.WriteLine("Выход из программы (поиграли и хватит) ");
+        Environment.Exit(0);
+    }
+}
