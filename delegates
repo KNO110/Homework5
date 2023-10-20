@@ -1,0 +1,130 @@
+///// ВНИМАНИЕ!!! Запустите пж программу, там прикол есть, только сначала не читайте код, а то не интересно, и до конца подождите))) Это не Win app так что тут без скримеров и звуков если что.
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Threading;
+
+class Program
+{
+    delegate void Menu();
+
+    static void Main(string[] args)
+    {
+        Dictionary<int, Menu> menu = new Dictionary<int, Menu>
+        {
+            {1, NewGame},
+            {2, LoadGame},
+            {3, Rules},
+            {4, AboutAuthor},
+            {0, Exit}
+        };
+
+        while (true)
+        {
+            Console.WriteLine("Меню:");
+            Console.WriteLine("1 - Новая игра");
+            Console.WriteLine("2 - Загрузить игру");
+            Console.WriteLine("3 - Правила");
+            Console.WriteLine("4 - Об авторе");
+            Console.WriteLine("0 - ВЫХОД");
+
+            Console.Write("Выберите пункт меню: ");
+            if (int.TryParse(Console.ReadLine(), out int choice))
+            {
+                if (menu.ContainsKey(choice))
+                {
+                    menu[choice](); 
+                }
+                else
+                {
+                    Console.WriteLine("Чё-то вы напутали, го ещё раз");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Число попутали в край...");
+            }
+        }
+    }
+
+    static void NewGame()
+    {
+        Console.WriteLine("Вы выбрали: Новая игра (включите воображение и играйте)");
+ 
+    }
+
+    static void LoadGame()
+    {
+        Console.WriteLine("Вы выбрали: Загрузить игру (она загрузилась, просто у вас комп фигня и не тянет)");
+  
+    }
+
+    static void Rules()
+    {
+        Console.WriteLine("Вы выбрали: Правила (не нарушайте закон и силу притяжения(по возможности))");
+   
+    }
+
+    static void AboutAuthor()
+    {
+        Console.WriteLine("Вы выбрали: Об авторе ( ну это я, да я крутой, я сейчас пью чаёк )");
+ 
+    }
+
+    static void Exit()
+    {
+        Console.WriteLine("Вы выбрали: ВЫХОД ( ах вы....покидаете меня, покидаете моё творение! Да как вы можете! Непростительно!!!");
+        Console.Clear(); 
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine("ТЫ МЕНЯ ПОКИДАЕШЬ?");
+            Thread.Sleep(100);
+            Console.Clear(); 
+            Thread.Sleep(100);
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine("ПОЧЕМУ...");
+            Thread.Sleep(50);
+            Console.Clear(); 
+            Thread.Sleep(50); 
+        }
+        for (int i = 0; i < 20; i++)
+        {
+            Console.WriteLine("НЕТ... НЕ НАДО");
+            Thread.Sleep(30); 
+            Console.Clear(); 
+            Thread.Sleep(30); 
+        }
+        for (int i = 0; i < 40; i++)
+        {
+            Console.Write("ТЫ РАД?");
+            Thread.Sleep(30); 
+            Thread.Sleep(30);
+        }
+        Console.Clear();
+
+        Console.WriteLine("\nC:\\Users\\2007n\\source\\repos\\ConsoleApp25\\bin\\Debug\\net7.0\\ConsoleApp25.exe (process 4196) exited with code 0.\r\nPress any key to close this window . . .");
+
+        Thread.Sleep(2000);
+
+        Console.Clear();
+
+        for (int i = 0; i < 7; i++)
+        {
+            Console.Write("Critical error. Potentially dangerous Virus detected. Rebooting system...");
+            Thread.Sleep(500); 
+            Thread.Sleep(300); 
+            Console.Clear();
+        }
+
+        Environment.Exit(0);
+    }
+}
+
+        Environment.Exit(0);
+    }
+}
